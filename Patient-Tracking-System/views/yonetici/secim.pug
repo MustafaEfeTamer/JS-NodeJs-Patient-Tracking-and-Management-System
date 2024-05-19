@@ -1,0 +1,43 @@
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    title Yonetici Sayfası
+    link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.4.0/dist/css/bootstrap.min.css", rel="stylesheet")
+    style.
+      .container {
+        margin-top: 50px;
+        text-align: center;
+      }
+      .buttons {
+        margin-top: 20px;
+      }
+      .btn {
+        margin-right: 10px;
+        border: 2px solid transparent;
+        padding: 10px 20px;
+        text-decoration: none;
+        font-weight: bold;
+        color: white;
+        border-radius: 20px;
+        display: inline-block;
+      }
+      .btn:hover {
+        border-color: white;
+      }
+      .doctor-btn {
+        background-color: green;
+      }
+      .patient-btn {
+        background-color: blue;
+      }
+      .appointment-btn {
+        background-color: red;
+      }
+  body
+    .container
+      h1 Yönetici Sayfası
+      .buttons
+        a.btn.doctor-btn(href="/yonetici/doktorlar") Doktorlar
+        a.btn.patient-btn(href="/yonetici/randevular") Randevular
+        a.btn.appointment-btn(href="/yonetici/hastalar") Hastalar

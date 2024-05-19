@@ -1,0 +1,43 @@
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    title Hastane Yönetim Sistemi
+    link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.4.0/dist/css/bootstrap.min.css", rel="stylesheet")
+    style.
+      .container {
+        margin-top: 50px;
+        text-align: center;
+      }
+      .buttons {
+        margin-top: 20px;
+      }
+      .btn {
+        margin-right: 10px;
+        border: 2px solid transparent;
+        padding: 10px 20px;
+        text-decoration: none;
+        font-weight: bold;
+        color: white;
+        border-radius: 20px;
+        display: inline-block;
+      }
+      .btn:hover {
+        border-color: white;
+      }
+      .doctor-btn {
+        background-color: green;
+      }
+      .patient-btn {
+        background-color: blue;
+      }
+      .admin-btn {
+        background-color: red;
+      }
+  body
+    .container
+      h1 Hastane Yönetim Sistemi
+      .buttons
+        a.btn.doctor-btn(href="/doktor/giris") Doktor
+        a.btn.patient-btn(href="/hasta/secim") Hasta 
+        a.btn.admin-btn(href="/yonetici/secim") Yönetici

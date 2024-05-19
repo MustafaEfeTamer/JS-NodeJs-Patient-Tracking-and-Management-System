@@ -1,0 +1,43 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    title Hastalrımız
+    link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi", crossorigin="anonymous")
+
+  body
+    .container
+      h3 Hastalarımız
+      hr
+      a.btn.btn-primary.btn-sm.mb-3(href="/yonetici/hastaFormKaydet") Hasta Ekle
+      table.table.table-bordered.table-striped
+        thead.table-dark
+          tr
+            th Hasta ID
+            th Ad
+            th Soyad
+            th Doğum Tarihi
+            th Cinsiyet 
+            th Telefon 
+            th Adres
+            th Düzenle
+        tbody
+          each hasta in hastalar
+            tr
+              td= hasta.hasta_id
+              td= hasta.hasta_ad
+              td= hasta.hasta_soyad
+              td= new Date(hasta.dogum_tarihi).toLocaleDateString('tr-TR')
+              td= hasta.cinsiyet
+              td= hasta.telefon
+              td= hasta.adres
+              td
+                div.row
+                  div.col-small
+                    form(action="/yonetici/hastaFormGuncelle", method="GET")
+                      input(type="hidden", name="patientId", value=hasta.hasta_id)
+                      button.btn.btn-info.btn-sm.me-1(type="submit", style="float:left;") Güncelle
+                    form(action="/yonetici/silHasta", method="POST" onsubmit="return confirm('Hastayı silmek istiyor musunuz? Hastaya ait randevular da silinecek');")
+                      input(type="hidden", name="patientId", value=hasta.hasta_id)
+                      button.btn.btn-danger.btn-sm(type="submit") Sil
